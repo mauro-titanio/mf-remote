@@ -9,7 +9,7 @@ const CounterProvider = ({ children }) => {
   const [ws, setWs] = useState(null);
 
   useEffect(() => {
-    // Initialize WebSocket connection to Vercel
+    // Initialize WebSocket connection
     const socket = new WebSocket("wss://oil-north-blender.glitch.me");
 
     socket.onopen = () => {
@@ -22,8 +22,8 @@ const CounterProvider = ({ children }) => {
       console.log("Received message:", message);
 
       // Handle received messages and update count if necessary
-      if (message.type === "updateCount") {
-        setCount(message.count);
+      if (message.type === "notification") {
+        setCount((prevCount) => prevCount + message.countChange);
       }
     };
 
