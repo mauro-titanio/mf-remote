@@ -10,7 +10,7 @@ const CounterProvider = ({ children }) => {
 
   useEffect(() => {
     // Initialize WebSocket connection to Vercel
-    const socket = new WebSocket("wss://ws-notif.vercel.app");
+    const socket = new WebSocket("wss://oil-north-blender.glitch.me");
 
     socket.onopen = () => {
       console.log("WebSocket connected");
